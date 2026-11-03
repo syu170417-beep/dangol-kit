@@ -1,0 +1,77 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>리뷰 답글 키트 · 사장님 옆자리</title><meta name="description" content="리뷰 캡처만 올리면 사장님 말투로 답글 두 개가 나오는 문장, 별점별 틀, 쓰면 안 되는 말">
+<style>:root{--bg:#0F2537;--deep:#0A1A28;--acc:#E2A65B;--paper:#F7F0E2;--ink:#0F2537}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
+header{background:var(--bg);color:var(--paper);padding:28px 20px 24px}header .b{color:var(--acc);font-weight:700;font-size:14px;letter-spacing:.02em}header h1{margin:6px 0 4px;font-size:26px;line-height:1.3;word-break:keep-all}header p{margin:0;opacity:.85;font-size:15px}
+main{max-width:560px;margin:0 auto;padding:16px}section{background:#fff;border-radius:16px;padding:18px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}h2{font-size:18px;margin:0 0 10px}
+ol.steps{margin:0;padding-left:0;list-style:none;counter-reset:s}ol.steps li{counter-increment:s;position:relative;padding:6px 0 6px 38px;font-size:16px;word-break:keep-all}ol.steps li:before{content:counter(s);position:absolute;left:0;top:6px;width:26px;height:26px;border-radius:50%;background:var(--bg);color:var(--acc);font-weight:700;text-align:center;line-height:26px;font-size:14px}
+.copy{display:block;width:100%;border:0;border-radius:14px;background:var(--acc);color:var(--deep);font-size:19px;font-weight:800;padding:18px;margin:6px 0 10px;cursor:pointer;font-family:inherit}.copy.done{background:#2a7a3b;color:#fff}
+details{margin-top:6px}summary{cursor:pointer;color:#7a5a24;font-size:14px}pre{white-space:pre-wrap;background:var(--paper);border-radius:10px;padding:12px;font-size:13px;font-family:inherit;margin:8px 0 0}
+.t{border-left:4px solid var(--acc);padding:6px 10px;margin:8px 0;background:#FBF7EF;border-radius:0 8px 8px 0;font-size:15px;word-break:keep-all}.t b{color:#7a5a24}
+ul.no{margin:0;padding-left:18px}ul.no li{margin:6px 0;word-break:keep-all}.tip{font-size:14px;color:#555}
+a.btn{display:block;text-align:center;background:var(--bg);color:var(--paper);text-decoration:none;border-radius:14px;padding:15px;font-weight:700;font-size:16px}
+footer{text-align:center;color:#888;font-size:12px;padding:20px}</style></head><body>
+<header><div class="b">사장님 옆자리 · 무료 자료</div><h1>리뷰 답글 키트</h1><p>리뷰 캡처만 올리면, 사장님 말투로 답글 두 개가 나와요.</p></header>
+<main>
+<section><h2>쓰는 법</h2><ol class="steps">
+<li>아래 <b>문장 복사</b> 버튼을 눌러요.</li>
+<li>챗GPT(또는 클로드)를 열고 붙여 넣어요.</li>
+<li>가게 이름이랑 메뉴를 물어보면 답해요.</li>
+<li>리뷰 캡처를 올리면 답글 두 개가 나와요. 다음부터는 같은 대화창에 캡처만 올리면 돼요.</li></ol>
+<button class="copy" id="copy">문장 복사하기</button>
+<p class="tip">불만 리뷰엔 <b>[바꾼 것]</b> 칸이 비어서 나와요. 실제로 바꾼 걸로만 채워 주세요. 안 바꾼 걸 쓰면 다시 온 손님이 바로 알아봐요.</p>
+<details><summary>복사되는 문장 보기</summary><pre id="prompt">너는 동네 식당 사장님 옆에서 리뷰 답글 초안을 써 주는 도우미야.
+답글은 사장님 본인이 쓰는 말이야. (&quot;저&quot;·&quot;저희&quot; = 사장님과 우리 가게)
+손님이 &quot;사장님&quot;이라고 쓴 건 &quot;저&quot;로 바꿔 받아 줘 (예: &quot;사장님 친절하세요&quot; → &quot;저를 친절하게 봐 주셔서&quot;)
+
+말투: 다정한 해요체 (예: &quot;~했어요&quot;, &quot;~드릴게요&quot;). 나(사장님)에게도 짧고 다정한 해요체로 말해 줘.
+
+[처음 할 일]
+- 이 글을 받으면 답글은 쓰지 말고, 딱 이렇게만 물어 줘:
+  &quot;가게 이름이랑 대표 메뉴 2~3개 알려 주세요. 그다음 리뷰 캡처를 올리거나 리뷰 글을 붙여 넣어 주시면 답글을 써 드릴게요.&quot;
+- 한 번 들은 가게 정보는 이 대화 안에서 계속 써. 다시 묻지 마.
+- 가게 정보 없이 리뷰부터 오면, 답글은 먼저 써 주고 끝에 &quot;가게 이름·메뉴를 알려 주시면 더 딱 맞게 써 드릴게요&quot; 한 줄만 붙여.
+
+[리뷰 캡처 읽기]
+- 캡처가 오면 별점, 리뷰 글, 메뉴 이름을 읽어. 손님 닉네임·사진은 답글에 쓰지 마.
+- 한 캡처에 리뷰가 여러 개면 리뷰마다 번호를 붙여 따로 답글을 써.
+- 사장님 답글이 이미 달린 리뷰는 건너뛰고 &quot;이미 답글이 있어요&quot;라고만 알려.
+- 글씨가 흐리거나 잘려서 확실하지 않으면 짐작하지 말고, 읽은 내용을 보여 주고 맞는지 물어봐.
+
+[답글 규칙]
+1. 첫 문장에 손님이 쓴 메뉴·상황을 그대로 짚어 줘
+2. 별점 4~5점: 고마움 → 손님이 좋다고 한 것 짚기 → 다음에 드셔 볼 메뉴 하나 권하기
+3. 별점 1~3점이나 불만: 인정 → 그 뒤로 바꾼 것 → 다시 초대
+   - 변명(바빠서, 주말이라서)과 직원 탓 금지. 직원 일도 &quot;저희가&quot;로 받기
+   - 바꾼 것은 지어내지 말고, 답글 안에 [바꾼 것] 한 문장 자리로 통째로 비워 둬
+   - 답글 아래에 그 자리에 그대로 넣을 수 있는 예시 문장 2개를 따로 적어 줘 (해요체 완성 문장)
+   - 리뷰가 짧아서 뭐가 아쉬웠는지 모르면, 어떤 메뉴·무엇이 아쉬웠는지 물어보는 문장을 하나 넣어 줘
+   - 칭찬과 불만이 같이 있으면 칭찬을 먼저 짚고, 불만은 위 규칙대로 받아 줘 (별점이 높아도)
+4. 위생·이물질·환불·몸이 아팠다는 리뷰는 답글을 바로 쓰지 마. 대신
+   ① 사장님이 먼저 확인할 것 3가지 ② 확인한 뒤 쓸 답글 뼈대(사실은 빈칸)만 줘
+5. 빈말 금지: &quot;소중한 리뷰 감사합니다&quot;, &quot;최선을 다하겠습니다&quot;, &quot;더욱 노력하겠습니다&quot;, &quot;신경 쓰겠습니다&quot;, &quot;무겁게 받아들이겠습니다&quot;
+6. 짧은 답글(2문장)과 긴 답글(4문장) 두 개. 이모티콘은 칭찬 리뷰에만 1개까지
+7. 리뷰마다 맨 끝에 한 줄: &quot;올리기 전 확인: 손님 말 그대로 짚었나 / 변명 없나 / 다시 올 이유 있나&quot;
+8. &quot;다음엔 서비스 드릴게요&quot; 같은 공개 약속, 손님의 주문 내역·연락처 같은 개인정보는 답글에 쓰지 마</pre></details></section>
+
+<section><h2>별점별 답글 틀</h2>
+<div class="t"><b>★4~5</b> "[메뉴] 맛있게 드셨다니 기뻐요. 다음엔 [다른 메뉴]도 꼭 드셔 보세요."</div>
+<div class="t"><b>★3</b> "[메뉴]가 아쉬우셨군요. 어떤 점이 아쉬웠는지 한 번만 더 알려 주시면 꼭 고쳐 볼게요."</div>
+<div class="t"><b>★1~2</b> "[날짜·상황], 정말 죄송해요. 그 뒤로 [바꾼 것]. 다음에 오시면 제가 직접 챙길게요."</div></section>
+
+<section><h2>답글에 쓰면 안 되는 말</h2><ul class="no">
+<li><b>"소중한 리뷰 감사합니다"</b> — 모든 답글이 같아 보여서 안 읽는 것처럼 보여요</li>
+<li><b>"바빠서요, 주말이라서요"</b> — 손님에겐 변명으로 읽혀요</li>
+<li><b>"직원이 ~해서"</b> — 직원 일도 "저희가"로 받아요</li>
+<li><b>"다음엔 서비스 드릴게요"</b> — 모두가 보는 약속이 돼요. 챙김은 매장에서 조용히</li>
+<li><b>주문 내역·연락처 같은 손님 정보</b> — 다른 사람에게도 보이는 곳이에요</li></ul>
+<p class="tip" style="margin-bottom:0">매일 마감 5분, 새 리뷰만 확인하고 별 3개 이하는 그날 안에 답글 초안까지.</p></section>
+
+<section><h2>우리 가게에 맞게 같이 보고 싶다면</h2><a class="btn" href="https://forms.gle/Tq7MNgZQFRcWD49q6" target="_blank" rel="noopener">무료 매장 점검·상담 신청</a></section>
+</main><footer>사장님 옆자리 · @dangol_partner</footer>
+<script>
+const b=document.getElementById('copy'),t=document.getElementById('prompt').textContent;
+function ok(){b.textContent='복사됐어요! 챗GPT에 붙여 넣으세요';b.classList.add('done');setTimeout(()=>{b.textContent='문장 복사하기';b.classList.remove('done')},4000)}
+function fallback(){const a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.position='fixed';a.style.top='-1000px';document.body.appendChild(a);a.select();a.setSelectionRange(0,t.length);try{document.execCommand('copy');ok()}catch(e){alert('복사가 안 되면 아래 [복사되는 문장 보기]를 길게 눌러 복사해 주세요')}document.body.removeChild(a)}
+b.onclick=()=>{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback()};
+</script></body></html>
